@@ -496,7 +496,6 @@ export default function Portfolio() {
       <FadeInWhenVisible>
         <DrawingsSection />
       </FadeInWhenVisible>
-      
 
       {/* TECHNICAL DOCUMENTATION */}
       <FadeInWhenVisible>
@@ -508,6 +507,7 @@ export default function Portfolio() {
         <PartsAndPrototyping />
       </FadeInWhenVisible>
 
+      {/* CONTACT */}
       <FadeInWhenVisible>
         <Contact />
       </FadeInWhenVisible>
