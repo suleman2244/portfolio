@@ -24,6 +24,23 @@ import CadScreenshots from "./CadScreenshots";
 import Contact from "./Contact";
 import AnimatedBackground from "./ParametricMeshBackground";
 
+// for multi downloading the files
+const handleMultiDownload = () => {
+  const files = [
+    { url: "/assets/Osama-CV-V-13.pdf", name: "Muhammad-Osama-CV.pdf" },
+    { url: "/assets/OSAMA-PORTFOLIO-CAD.pptx", name: "OSAMA-PORTFOLIO-CAD.pptx" },
+  ];
+
+  files.forEach((file) => {
+    const link = document.createElement("a");
+    link.href = file.url;
+    link.download = file.name;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+};
+
 const FadeInWhenVisible = ({ children }: { children: React.ReactNode }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -245,19 +262,19 @@ export default function Portfolio() {
           </motion.p>
 
           <div className="mt-6 flex gap-4">
-            <a
-              href="#projects"
-              className="inline-block bg-black text-white px-5 py-3 rounded-2xl shadow hover:scale-105 transition"
-            >
-              View Projects
-            </a>
-            <a
-              href="/assets/OSAMA-CV-V-13.pdf"
-              download="Muhammad-Osama-CV.pdf"
-              className="inline-block border border-black px-5 py-3 rounded-2xl hover:bg-green hover:text-white transition"
-            >
-              Download CV
-            </a>
+          <a
+            href="#projects"
+            className="inline-block bg-black text-white px-5 py-3 rounded-2xl shadow hover:scale-105 transition"
+          >
+            View Projects
+          </a>
+
+          <button
+            onClick={handleMultiDownload}
+            className="inline-block border border-black px-5 py-3 rounded-2xl hover:bg-green hover:text-white transition"
+          >
+            Download CV & Presentation
+          </button>
           </div>
         </div>
 

@@ -8,18 +8,16 @@ import ScrollProgressBar from "./ScrollProgressBar";
 export default function NavBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
-  const [hasShadow, setHasShadow] = useState(false); // 👈 controls shadow on scroll
+  const [hasShadow, setHasShadow] = useState(false);
 
-  // Add or remove shadow based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      setHasShadow(window.scrollY > 20); // 👈 adjust scroll threshold if needed
+      setHasShadow(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Detect current visible section
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const observer = new IntersectionObserver(
