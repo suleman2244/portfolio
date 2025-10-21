@@ -22,6 +22,7 @@ import DrawingsSection from "./DrawingsSection";
 import InternshipsAndCertificates from "./InternshipsAndCertificates";
 import CadScreenshots from "./CadScreenshots";
 import Contact from "./Contact";
+import AnimatedBackground from "./ParametricMeshBackground";
 
 const FadeInWhenVisible = ({ children }: { children: React.ReactNode }) => (
   <motion.div
@@ -220,7 +221,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="min-h-screen portfolio-theme antialiased">
+    <div className="min-h-screen portfolio-theme antialiased relative">
       {/* HERO */}
       <header className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center gap-8">
         <div className="flex-1">

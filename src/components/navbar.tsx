@@ -48,7 +48,7 @@ export default function NavBar() {
       {/* Fixed Navbar */}
       <nav
         className={`fixed top-0 left-0 w-full backdrop-blur-md z-40 transition-shadow duration-300 ${
-          hasShadow ? "shadow-[0_4px_10px_rgba(0,0,0,0.5)]" : "shadow-none"
+          hasShadow ? "shadow-[0_4px_10px_rgba(0,0,0,0.6)]" : "shadow-none"
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">

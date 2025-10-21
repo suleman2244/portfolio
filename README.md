@@ -16,6 +16,7 @@ A modern, dark-themed personal portfolio built with Next.js 15, React 19, TypeSc
 - **Language**: TypeScript
 - **UI**: React 19, Tailwind CSS
 - **Animations**: Framer Motion
+- **3D Graphics**: Three.js, React Three Fiber
 - **Icons**: @fortawesome/fontawesome-free, react-icons
 - **Gallery/Lightbox**: yet-another-react-lightbox
 
@@ -23,28 +24,30 @@ A modern, dark-themed personal portfolio built with Next.js 15, React 19, TypeSc
 ```
 src/
   app/
-    layout.tsx        # Root layout, fonts, global styles
-    page.tsx          # Home page: navbar, portfolio, scroll-to-top
+    layout.tsx                    # Root layout, metadata, favicon, fonts
+    page.tsx                      # Home composition (navbar, portfolio, footer)
   components/
-    navbar.tsx        # Top navigation bar
-    portfolio.tsx     # Main portfolio sections aggregator
+    Navbar.tsx                    # Sticky navigation bar
+    Portfolio.tsx                 # Aggregates all sections
     InternshipsAndCertificates.tsx
-    CadScreenshots.tsx
+    CadScreenshots.tsx            # "A Glimpse of 2D CAD Screenshots"
     DrawingsSection.tsx
     TechnicalDocumentation.tsx
     PartsAndPrototyping.tsx
-    ScrollProgressBar.tsx
-    ScrollToTop.js
     Contact.tsx
-public/
-  assets/             # CV and presentation files
-  images/             # Portfolio images and thumbnails
+    ScrollProgressBar.tsx         # Smooth scroll indicator
+    ScrollToTop.tsx               # Floating scroll-to-top button
+    ParametricMeshBackground.tsx  # 3D wireframe topology background
+  public/
+    assets/                       # CV and presentation (.pdf, .ppt)
+    images/                       # Portfolio images, previews, logos
+
 ```
 
 ## 🖼️ Content & Assets
-- Update images in `public/images/`.
+- All images in `public/images/`.
 - CV and presentation files live in `public/assets/`.
-- Edit portfolio sections inside `src/components/` (e.g., `DrawingsSection.tsx`, `PartsAndPrototyping.tsx`, `TechnicalDocumentation.tsx`).
+- Favicon and site logo (e.g. `mo-logo.png`) are also placed in `public/images/` for use in metadata.
 
 ## 🧩 Key Files
 - `src/app/layout.tsx` – App-wide metadata, fonts, and global styles
