@@ -22,14 +22,14 @@ export default function Contact() {
           </p>
 
           {/* BUTTONS */}
-          {/* <div className="mt-6 flex flex-col md:flex-row gap-4">
-            <a
+          <div className="mt-6 flex flex-col md:flex-row gap-4">
+            {/* <a
               href="mailto:osama.ather@outlook.com"
               className="inline-block border border-black px-5 py-3 rounded-2xl"
             >
               Email Me
-            </a> */}
-            {/* <a
+            </a>
+            <a
               href="/assets/OSAMA-CV-V-13.pdf"
               download="Muhammad-Osama-CV.pdf"
               className="inline-block bg-black text-white px-5 py-3 rounded-2xl"
