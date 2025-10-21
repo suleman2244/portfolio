@@ -29,7 +29,7 @@ export default function Contact() {
             >
               Email Me
             </a>
-            <a
+            {/* <a
               href="/assets/OSAMA-CV-V-13.pdf"
               download="Muhammad-Osama-CV.pdf"
               className="inline-block bg-black text-white px-5 py-3 rounded-2xl"
@@ -42,7 +42,7 @@ export default function Contact() {
               className="inline-block bg-black text-white px-5 py-3 rounded-2xl"
             >
               Download Presentation
-            </a>
+            </a> */}
           </div>
 
           {/* LOCATION */}
