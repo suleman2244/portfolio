@@ -24,23 +24,6 @@ import CadScreenshots from "./CadScreenshots";
 import Contact from "./Contact";
 import AnimatedBackground from "./ParametricMeshBackground";
 
-// for multi downloading the files
-const handleMultiDownload = () => {
-  const files = [
-    { url: "/assets/Osama-CV-V-13.pdf", name: "Muhammad-Osama-CV.pdf" },
-    { url: "/assets/OSAMA-PORTFOLIO-CAD.pptx", name: "OSAMA-PORTFOLIO-CAD.pptx" },
-  ];
-
-  files.forEach((file) => {
-    const link = document.createElement("a");
-    link.href = file.url;
-    link.download = file.name;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  });
-};
-
 const FadeInWhenVisible = ({ children }: { children: React.ReactNode }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -227,6 +210,99 @@ export default function Portfolio() {
     },
   ];
   
+  const personalProjects = [
+    {
+      title: "G.I. Joe Night Raven Cobra",
+      subtitle: "Mini 3-axis CNC milling machine for learning & prototyping",
+      description:
+        "A compact CNC prototype built using aluminum extrusions, lead screws, and stepper motors. Focused on mechanical rigidity and precise axis alignment.",
+      details:
+        "This project involved mechanical design, stepper calibration, and spindle mount prototyping. It demonstrates mechanical precision, rigidity control, and step motion tuning for lightweight materials.",
+      images: [
+        "/images/personal-pro/cobra1.jpg",
+        "/images/personal-pro/cobra2.jpg",
+        "/images/personal-pro/cobra3.jpg",
+        "/images/personal-pro/cobra4.jpg",
+        "/images/personal-pro/cobra5.jpg",
+        "/images/personal-pro/cobra6.jpg",
+        "/images/personal-pro/cobra7.jpg",
+        "/images/personal-pro/cobra8.jpg",
+        "/images/personal-pro/cobra9.jpg",
+        "/images/personal-pro/cobra10.jpg",
+        "/images/personal-pro/cobra11.jpg",
+        "/images/personal-pro/cobra12.jpg",
+        "/images/personal-pro/cobra13.jpg",
+        "/images/personal-pro/cobra14.jpg",
+      ],
+      bullets: [
+        "Designed custom gantry & carriage system",
+        "Stepper-based motion control",
+        "Precision axis calibration",
+      ],
+    },
+    {
+      title: "Electric Vehicle Racing Car",
+      subtitle: "Custom aluminum chassis with suspension & steering system",
+      description:
+        "An RC vehicle chassis project exploring wheel alignment, steering geometry, and suspension integration using lightweight materials.",
+      details:
+        "Developed using SolidWorks with emphasis on DFMA and realistic movement simulation. Designed adjustable steering linkage and shock absorber mounts.",
+      images: [
+        "/images/personal-pro/ecar1.jpg",
+        "/images/personal-pro/ecar2.jpg",
+        "/images/personal-pro/ecar3.jpg",
+        "/images/personal-pro/ecar4.jpg",
+        "/images/personal-pro/ecar5.jpg",
+        "/images/personal-pro/ecar6.jpg",
+        "/images/personal-pro/ecar7.jpg",
+        "/images/personal-pro/ecar8.jpg",
+      ],
+      bullets: [
+        "Independent suspension system",
+        "Adjustable toe & camber design",
+        "Lightweight aluminum chassis",
+      ],
+    },
+    {
+      title: "Zippo Lighter",
+      subtitle: "Personal UAV design for payload testing & modular upgrades",
+      description:
+        "A custom-built drone frame integrating modular motor mounts and payload slots for flexible testing.",
+      details:
+        "Designed in PTC Creo and 3D printed for rapid iteration. The frame allowed different payload weights and propeller configurations to be tested safely.",
+      images: [
+        "/images/personal-pro/lighter3.jpg",
+        "/images/personal-pro/lighter1.jpg",
+        "/images/personal-pro/lighter2.jpg",
+        "/images/personal-pro/lighter4.jpg",
+        "/images/personal-pro/lighter5.jpg",
+        "/images/personal-pro/lighter6.jpg",
+      ],
+      bullets: [
+        "3D-printed PLA arms and joints",
+        "Modular payload attachment",
+        "Custom motor mount brackets",
+      ],
+    },
+    {
+      title: "dont know yet",
+      subtitle: "Scaled mechanical press prototype using syringes & pistons",
+      description:
+        "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
+      details:
+        "Used as a mechanical concept demonstrator for understanding pressure transmission and force multiplication. Designed to be easily replicable for educational projects.",
+      images: [
+        "/images/personal-pro/E.jpg",
+        "/images/personal-pro/E2.jpg",
+      ],
+      bullets: [
+        "Hydraulic syringe system",
+        "Transparent fluid chamber for visualization",
+        "Demonstrates Pascal’s principle",
+      ],
+    },
+  ];
+  
 
   // Close with escape key
   useEffect(() => {
@@ -256,7 +332,7 @@ export default function Portfolio() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-gray-600 max-w-xl"
           >
-            2+ years in product development and full lifecycle design, 3+ years
+            3+ years in product development and full lifecycle design, 3+ years
             CAD (SolidWorks, PTC Creo). DFMA-focused, prototyping & 3D printing
             experience, BOMs and technical documentation.
           </motion.p>
@@ -269,12 +345,13 @@ export default function Portfolio() {
             View Projects
           </a>
 
-          <button
-            onClick={handleMultiDownload}
-            className="inline-block border border-black px-5 py-3 rounded-2xl hover:bg-green hover:text-white transition"
-          >
-            Download CV & Presentation
-          </button>
+          <a
+          href="/assets/Osama-CV-and-Portfolio.rar"
+          download="Osama-CV-and-Portfolio.rar"
+          className="inline-block border border-black px-5 py-3 rounded-2xl hover:bg-green hover:text-white transition"
+        >
+          Download CV & Presentation
+          </a>
           </div>
         </div>
 
@@ -299,7 +376,7 @@ export default function Portfolio() {
       <div className="bg-white rounded-2xl p-6 shadow">
         <h2 className="text-2xl font-bold">ABOUT ME</h2>
         <p className="mt-3 text-gray-600">
-          2+ years of experience in full product development lifecycle — concept to
+          3+ years of experience in full product development lifecycle — concept to
           production. Experienced in fast-paced startup environments, producing
           manufacturable CAD models, 2D drawings (DXF), BOMs and assembly
           documentation.
@@ -376,74 +453,121 @@ export default function Portfolio() {
       </FadeInWhenVisible>
 
       {/* PROJECTS */}
-
       <FadeInWhenVisible>
-      <section id="projects" className="max-w-6xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold mb-6">FEATURED PROJECTS</h2>
+        <section id="projects" className="max-w-6xl mx-auto px-6 py-12">
+          {/* FEATURED PROJECTS */}
+          <h2 className="text-3xl font-bold mb-6">FEATURED PROJECTS</h2>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((p, i) => (
-         <motion.article
-         key={p.title}
-         whileHover={{ translateY: -6 }}
-         onClick={() => {
-           setActiveProject(i);
-           setPhotoIndex(0);
-         }}
-         className={`relative bg-white rounded-2xl p-4 shadow hover:shadow-lg transition group overflow-hidden cursor-pointer 
-           ${
-             p.title === "Payload Mechanism"
-               ? "md:col-span-2" // ✅ spans 2 columns on medium+ screens
-               : ""
-           }`}
-       >
-       
-            <div className="flex gap-4 transition-all duration-300 group-hover:blur-sm">
-              <div className="w-36 h-24 rounded-lg overflow-hidden flex-shrink-0">
-                <img
-                  src={p.images[0]}
-                  alt={p.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg">{p.title}</h3>
-                <p className="text-sm text-gray-600 line-clamp-4 mt-2">{p.description}</p>
-              </div>
-            </div>
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {projects.map((p, i) => (
+              <motion.article
+                key={p.title}
+                whileHover={{ translateY: -6 }}
+                onClick={() => {
+                  setActiveProject(i);
+                  setPhotoIndex(0);
+                }}
+                className={`relative bg-white rounded-2xl p-4 shadow hover:shadow-lg transition group overflow-hidden cursor-pointer ${
+                  p.title === "Payload Mechanism" ? "md:col-span-2" : ""
+                }`}
+              >
+                <div className="flex gap-4 transition-all duration-300 group-hover:blur-sm">
+                  <div className="w-36 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                    <img
+                      src={p.images[0]}
+                      alt={p.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">{p.title}</h3>
+                    <p className="text-sm text-gray-600 line-clamp-4 mt-2">
+                      {p.description}
+                    </p>
+                  </div>
+                </div>
 
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <div className="bg-black/50 backdrop-blur-md absolute inset-0"></div>
-              <div className="relative z-10 flex flex-col items-center text-white">
-                <FaRegEye className="text-4xl mb-2 animate-fade-in" />
-                <CgArrowLongRight className="text-2xl transform -translate-x-6 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100" />
-              </div>
-            </div>
-          </motion.article>
-        ))}
-      </div>
-    </section>
-    </FadeInWhenVisible>
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="bg-black/50 backdrop-blur-md absolute inset-0"></div>
+                  <div className="relative z-10 flex flex-col items-center text-white">
+                    <FaRegEye className="text-4xl mb-2 animate-fade-in" />
+                    <CgArrowLongRight className="text-2xl transform -translate-x-6 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100" />
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          {/* PERSONAL PROJECTS */}
+          <h2 className="text-3xl font-bold mb-6">PERSONAL PROJECTS</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {personalProjects.map((p, i) => (
+              <motion.article
+                key={p.title}
+                whileHover={{ translateY: -6 }}
+                onClick={() => {
+                  setActiveProject(i + projects.length); // ✅ offset index so Lightbox still works
+                  setPhotoIndex(0);
+                }}
+                className="relative bg-white rounded-2xl p-4 shadow hover:shadow-lg transition group overflow-hidden cursor-pointer"
+              >
+                <div className="flex gap-4 transition-all duration-300 group-hover:blur-sm">
+                  <div className="w-36 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                    <img
+                      src={p.images[0]}
+                      alt={p.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">{p.title}</h3>
+                    <p className="text-sm text-gray-600 line-clamp-4 mt-2">
+                      {p.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="bg-black/50 backdrop-blur-md absolute inset-0"></div>
+                  <div className="relative z-10 flex flex-col items-center text-white">
+                    <FaRegEye className="text-4xl mb-2 animate-fade-in" />
+                    <CgArrowLongRight className="text-2xl transform -translate-x-6 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100" />
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+      </FadeInWhenVisible>
 
       {/* ✅ Lightbox popup for project images */}
       {activeProject !== null && (
-        <Lightbox
-          open={activeProject !== null}
-          close={() => setActiveProject(null)}
-          index={photoIndex}
-          slides={projects[activeProject].images.map((src) => ({
-            src,
-            description: `${projects[activeProject].title} — ${projects[activeProject].subtitle}`,
-          }))}
-          on={{
-            view: ({ index }) => setPhotoIndex(index),
-          }}
-          plugins={[Captions, Thumbnails]}
-          captions={{ descriptionTextAlign: "center" }}
-          thumbnails={{ borderRadius: 6, width: 100, height: 60 }}
-        />
-      )}
+      <Lightbox
+        open={activeProject !== null}
+        close={() => setActiveProject(null)}
+        index={photoIndex}
+        slides={[
+          ...projects,
+          ...personalProjects,
+        ][activeProject].images.map((src) => ({
+          src,
+          description: `${
+            [...projects, ...personalProjects][activeProject].title
+          } — ${
+            [...projects, ...personalProjects][activeProject].subtitle
+          }`,
+        }))}
+        on={{
+          view: ({ index }) => setPhotoIndex(index),
+        }}
+        plugins={[Captions, Thumbnails]}
+        captions={{ descriptionTextAlign: "center" }}
+        thumbnails={{ borderRadius: 6, width: 100, height: 60 }}
+      />
+    )}
+
 
       {/* ✅ Side modal when project is open */}
       <AnimatePresence>
@@ -473,29 +597,38 @@ export default function Portfolio() {
             />
           </button>
 
-          {/* ✅ Modal Content */}
-          <div
-            className={`p-6 transition-opacity duration-300 ${
-              minimized ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
-          >
-            <h2 className="text-xl font-bold mb-1 text-[#22c55e]">
-              {projects[activeProject].title}
-            </h2>
-            <p className="text-sm text-gray-400 mb-4">
-              {projects[activeProject].subtitle}
-            </p>
+        {/* ✅ Modal Content */}
+        <div
+          className={`p-6 transition-opacity duration-300 ${
+            minimized ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        >
+          {(() => {
+            const allProjects = [...projects, ...personalProjects];
+            const current = allProjects[activeProject!]; // Non-null assertion
 
-            <p className="text-gray-300 leading-relaxed mb-4">
-              {projects[activeProject].details}
-            </p>
+            return (
+              <>
+                <h2 className="text-xl font-bold mb-1 text-[#22c55e]">
+                  {current.title}
+                </h2>
+                <p className="text-sm text-gray-400 mb-4">
+                  {current.subtitle}
+                </p>
 
-            <ul className="list-disc list-inside space-y-1 text-gray-400">
-              {projects[activeProject].bullets.map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
-          </div>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  {current.details}
+                </p>
+
+                <ul className="list-disc list-inside space-y-1 text-gray-400">
+                  {current.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              </>
+            );
+          })()}
+        </div>
         </motion.div>
       )}
     </AnimatePresence>
