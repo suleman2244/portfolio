@@ -285,15 +285,70 @@ export default function Portfolio() {
       ],
     },
     {
-      title: "dont know yet",
+      title: "High-Speed Mosquito Trap Fan",
       subtitle: "Scaled mechanical press prototype using syringes & pistons",
       description:
         "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
       details:
         "Used as a mechanical concept demonstrator for understanding pressure transmission and force multiplication. Designed to be easily replicable for educational projects.",
       images: [
-        "/images/personal-pro/E.jpg",
-        "/images/personal-pro/E2.jpg",
+        "/images/personal-pro/mtrap1.jpg",
+        "/images/personal-pro/mtrap2.jpg",
+        "/images/personal-pro/mtrap3.jpg",
+      ],
+      bullets: [
+        "Hydraulic syringe system",
+        "Transparent fluid chamber for visualization",
+        "Demonstrates Pascal’s principle",
+      ],
+    },
+    {
+      title: "Bottle Rack",
+      subtitle: "Scaled mechanical press prototype using syringes & pistons",
+      description:
+        "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
+      details:
+        "Used as a mechanical concept demonstrator for understanding pressure transmission and force multiplication. Designed to be easily replicable for educational projects.",
+      images: [
+        "/images/personal-pro/br1.jpg",
+        "/images/personal-pro/br2.jpg",
+      ],
+      bullets: [
+        "Hydraulic syringe system",
+        "Transparent fluid chamber for visualization",
+        "Demonstrates Pascal’s principle",
+      ],
+    },
+    {
+      title: "Collapsable Dog Pot",
+      subtitle: "Scaled mechanical press prototype using syringes & pistons",
+      description:
+        "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
+      details:
+        "This project focuses on creating a collapsible dog bowl that's perfect for pet owners who are always on the move. Designed with portability and ease of use in mind, this bowl can be taken anywhere, making it easy to provide food or water to your furry friend. Its compact design ensures it’s convenient to carry around without losing any functionality, making it a must-have accessory for anyone who loves to travel with their pet.",
+      images: [
+        "/images/personal-pro/dogpot1.jpg",
+        "/images/personal-pro/dogpot2.jpg",
+        "/images/personal-pro/dogpot3.jpg",
+        "/images/personal-pro/dogpot4.jpg",
+        "/images/personal-pro/dogpot5.jpg",
+      ],
+      bullets: [
+        "Hydraulic syringe system",
+        "Transparent fluid chamber for visualization",
+        "Demonstrates Pascal’s principle",
+      ],
+    },
+    {
+      title: "Bee Truck",
+      subtitle: "Scaled mechanical press prototype using syringes & pistons",
+      description:
+        "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
+      details:
+        "This project focuses on creating a collapsible dog bowl that's perfect for pet owners who are always on the move. Designed with portability and ease of use in mind, this bowl can be taken anywhere, making it easy to provide food or water to your furry friend. Its compact design ensures it’s convenient to carry around without losing any functionality, making it a must-have accessory for anyone who loves to travel with their pet.",
+      images: [
+        "/images/personal-pro/beetruck1.jpg",
+        "/images/personal-pro/beetruck2.jpg",
       ],
       bullets: [
         "Hydraulic syringe system",
@@ -498,7 +553,7 @@ export default function Portfolio() {
               </motion.article>
             ))}
           </div>
-
+      
           {/* PERSONAL PROJECTS */}
           <h2 className="text-3xl font-bold mb-6">PERSONAL PROJECTS</h2>
           <div className="grid md:grid-cols-2 gap-6">
@@ -510,7 +565,9 @@ export default function Portfolio() {
                   setActiveProject(i + projects.length); // ✅ offset index so Lightbox still works
                   setPhotoIndex(0);
                 }}
-                className="relative bg-white rounded-2xl p-4 shadow hover:shadow-lg transition group overflow-hidden cursor-pointer"
+                className={`relative bg-white rounded-2xl p-4 shadow hover:shadow-lg transition group overflow-hidden cursor-pointer ${
+                  p.title === "Bee Truck" ? "md:col-span-2" : ""
+                }`}
               >
                 <div className="flex gap-4 transition-all duration-300 group-hover:blur-sm">
                   <div className="w-36 h-24 rounded-lg overflow-hidden flex-shrink-0">
