@@ -29,14 +29,15 @@ src/
   components/
     Navbar.tsx                    # Sticky navigation bar
     Portfolio.tsx                 # Aggregates all sections
+    Projects.tsx
     InternshipsAndCertificates.tsx
-    CadScreenshots.tsx            # "A Glimpse of 2D CAD Screenshots"
+    CadScreenshots.tsx
     DrawingsSection.tsx
     TechnicalDocumentation.tsx
     PartsAndPrototyping.tsx
     Contact.tsx
     ScrollProgressBar.tsx         # Smooth scroll indicator
-    ScrollToTop.tsx               # Floating scroll-to-top button
+    ScrollToTop.js                # Floating scroll-to-top button
     ParametricMeshBackground.tsx  # 3D wireframe topology background
   public/
     assets/                       # CV and presentation (.pdf, .ppt)
