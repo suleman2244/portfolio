@@ -170,13 +170,151 @@ const projects: Project[] = [
 ];
 
 const personalProjects = [
-  { title: "G.I. Joe Night Raven Cobra", subtitle: "", description: "", details: "", images: ["/images/personal-pro/cobra1.jpg"], bullets: [] },
-  { title: "Electric Vehicle Racing Car", subtitle: "", description: "", details: "", images: ["/images/personal-pro/ecar1.jpg"], bullets: [] },
-  { title: "Zippo Lighter", subtitle: "", description: "", details: "", images: ["/images/personal-pro/lighter3.jpg"], bullets: [] },
-  { title: "High-Speed Mosquito Trap Fan", subtitle: "", description: "", details: "", images: ["/images/personal-pro/mtrap1.jpg"], bullets: [] },
-  { title: "Bottle Rack", subtitle: "", description: "", details: "", images: ["/images/personal-pro/br1.jpg"], bullets: [] },
-  { title: "Collapsible Dog Pot", subtitle: "", description: "", details: "", images: ["/images/personal-pro/dogpot1.jpg"], bullets: [] },
-  { title: "Bee Truck", subtitle: "", description: "", details: "", images: ["/images/personal-pro/beetruck1.jpg"], bullets: [] },
+  {
+    title: "G.I. Joe Night Raven Cobra",
+    subtitle: "Mini 3-axis CNC milling machine for learning & prototyping",
+    description:
+      "A compact CNC prototype built using aluminum extrusions, lead screws, and stepper motors. Focused on mechanical rigidity and precise axis alignment.",
+    details:
+      "This project involved mechanical design, stepper calibration, and spindle mount prototyping. It demonstrates mechanical precision, rigidity control, and step motion tuning for lightweight materials.",
+    images: [
+      "/images/personal-pro/cobra1.jpg",
+      "/images/personal-pro/cobra2.jpg",
+      "/images/personal-pro/cobra3.jpg",
+      "/images/personal-pro/cobra4.jpg",
+      "/images/personal-pro/cobra5.jpg",
+      "/images/personal-pro/cobra6.jpg",
+      "/images/personal-pro/cobra7.jpg",
+      "/images/personal-pro/cobra8.jpg",
+      "/images/personal-pro/cobra9.jpg",
+      "/images/personal-pro/cobra10.jpg",
+      "/images/personal-pro/cobra11.jpg",
+      "/images/personal-pro/cobra12.jpg",
+      "/images/personal-pro/cobra13.jpg",
+      "/images/personal-pro/cobra14.jpg",
+    ],
+    bullets: [
+      "Designed custom gantry & carriage system",
+      "Stepper-based motion control",
+      "Precision axis calibration",
+    ],
+  },
+  {
+    title: "Electric Vehicle Racing Car",
+    subtitle: "Custom aluminum chassis with suspension & steering system",
+    description:
+      "An RC vehicle chassis project exploring wheel alignment, steering geometry, and suspension integration using lightweight materials.",
+    details:
+      "Developed using SolidWorks with emphasis on DFMA and realistic movement simulation. Designed adjustable steering linkage and shock absorber mounts.",
+    images: [
+      "/images/personal-pro/ecar1.jpg",
+      "/images/personal-pro/ecar2.jpg",
+      "/images/personal-pro/ecar3.jpg",
+      "/images/personal-pro/ecar4.jpg",
+      "/images/personal-pro/ecar5.jpg",
+      "/images/personal-pro/ecar6.jpg",
+      "/images/personal-pro/ecar7.jpg",
+      "/images/personal-pro/ecar8.jpg",
+    ],
+    bullets: [
+      "Independent suspension system",
+      "Adjustable toe & camber design",
+      "Lightweight aluminum chassis",
+    ],
+  },
+  {
+    title: "Zippo Lighter",
+    subtitle: "Personal UAV design for payload testing & modular upgrades",
+    description:
+      "A custom-built drone frame integrating modular motor mounts and payload slots for flexible testing.",
+    details:
+      "Designed in PTC Creo and 3D printed for rapid iteration. The frame allowed different payload weights and propeller configurations to be tested safely.",
+    images: [
+      "/images/personal-pro/lighter3.jpg",
+      "/images/personal-pro/lighter1.jpg",
+      "/images/personal-pro/lighter2.jpg",
+      "/images/personal-pro/lighter4.jpg",
+      "/images/personal-pro/lighter5.jpg",
+      "/images/personal-pro/lighter6.jpg",
+    ],
+    bullets: [
+      "3D-printed PLA arms and joints",
+      "Modular payload attachment",
+      "Custom motor mount brackets",
+    ],
+  },
+  {
+    title: "High-Speed Mosquito Trap Fan",
+    subtitle: "Scaled mechanical press prototype using syringes & pistons",
+    description:
+      "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
+    details:
+      "Used as a mechanical concept demonstrator for understanding pressure transmission and force multiplication. Designed to be easily replicable for educational projects.",
+    images: [
+      "/images/personal-pro/mtrap1.jpg",
+      "/images/personal-pro/mtrap2.jpg",
+      "/images/personal-pro/mtrap3.jpg",
+    ],
+    bullets: [
+      "Hydraulic syringe system",
+      "Transparent fluid chamber for visualization",
+      "Demonstrates Pascal’s principle",
+    ],
+  },
+  {
+    title: "Bottle Rack",
+    subtitle: "Scaled mechanical press prototype using syringes & pistons",
+    description:
+      "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
+    details:
+      "Used as a mechanical concept demonstrator for understanding pressure transmission and force multiplication. Designed to be easily replicable for educational projects.",
+    images: [
+      "/images/personal-pro/br1.jpg",
+      "/images/personal-pro/br2.jpg",
+    ],
+    bullets: [
+      "Hydraulic syringe system",
+      "Transparent fluid chamber for visualization",
+      "Demonstrates Pascal’s principle",
+    ],
+  },
+  {
+    title: "Collapsable Dog Pot",
+    subtitle: "Scaled mechanical press prototype using syringes & pistons",
+    description:
+      "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
+    details:
+      "This project focuses on creating a collapsible dog bowl that's perfect for pet owners who are always on the move. Designed with portability and ease of use in mind, this bowl can be taken anywhere, making it easy to provide food or water to your furry friend. Its compact design ensures it’s convenient to carry around without losing any functionality, making it a must-have accessory for anyone who loves to travel with their pet.",
+    images: [
+      "/images/personal-pro/dogpot1.jpg",
+      "/images/personal-pro/dogpot2.jpg",
+      "/images/personal-pro/dogpot3.jpg",
+      "/images/personal-pro/dogpot4.jpg",
+      "/images/personal-pro/dogpot5.jpg",
+    ],
+    bullets: [
+      "Hydraulic syringe system",
+      "Transparent fluid chamber for visualization",
+      "Demonstrates Pascal’s principle",
+    ],
+  },
+  {
+    title: "Bee Truck",
+    subtitle: "Scaled mechanical press prototype using syringes & pistons",
+    description:
+      "A small-scale hydraulic press built to demonstrate Pascal’s law and load amplification principles.",
+    details:
+      "This project focuses on creating a collapsible dog bowl that's perfect for pet owners who are always on the move. Designed with portability and ease of use in mind, this bowl can be taken anywhere, making it easy to provide food or water to your furry friend. Its compact design ensures it’s convenient to carry around without losing any functionality, making it a must-have accessory for anyone who loves to travel with their pet.",
+    images: [
+      "/images/personal-pro/beetruck1.jpg",
+      "/images/personal-pro/beetruck2.jpg",
+    ],
+    bullets: [
+      "Hydraulic syringe system",
+      "Transparent fluid chamber for visualization",
+      "Demonstrates Pascal’s principle",
+    ],
+  },
 ];
 
 const allProjects = [...projects, ...personalProjects];
