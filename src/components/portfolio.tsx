@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-
+import React from "react";
 import { motion } from "framer-motion";
 
 // ✅ Lightbox
@@ -44,32 +43,22 @@ export default function Portfolio() {
           >
             Mechanical Engineer & CAD Designer
           </motion.h1>
-          <motion.p
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.1 }}
-            className="mt-4 text-gray-600 max-w-xl"
-          >
-            3+ years in product development and full lifecycle design, 3+ years
-            CAD (SolidWorks, PTC Creo). DFMA-focused, prototyping & 3D printing
-            experience, BOMs and technical documentation.
-          </motion.p>
 
           <div className="mt-6 flex gap-4">
-          <a
-            href="#projects"
-            className="inline-block bg-black text-white px-5 py-3 rounded-2xl shadow hover:scale-105 transition"
-          >
-            View Projects
-          </a>
+            <a
+              href="#projects"
+              className="inline-block bg-black text-white px-5 py-3 rounded-2xl shadow hover:scale-105 transition"
+            >
+              View Projects
+            </a>
 
-          <a
-          href="/assets/Osama-CV-and-Portfolio.rar"
-          download="Osama-CV-and-Portfolio.rar"
-          className="inline-block border border-black px-5 py-3 rounded-2xl hover:bg-green hover:text-white transition"
-        >
-          Download CV & Presentation
-          </a>
+            <a
+              href="/assets/Osama-CV-and-Portfolio.rar"
+              download="Osama-CV-and-Portfolio.rar"
+              className="inline-block border border-black px-5 py-3 rounded-2xl hover:bg-green hover:text-white transition"
+            >
+              Download CV & Presentation
+            </a>
           </div>
         </div>
 
@@ -81,8 +70,8 @@ export default function Portfolio() {
           className="w-full md:w-1/3 rounded-2xl overflow-hidden shadow-lg"
         >
           <img
-            src="/images/Picture45.jpg"
-            alt="CAD screenshot"
+            src="/images/osama-pfp.jpg"
+            alt="OSAMA PFP"
             className="w-full h-64 object-cover"
           />
         </motion.div>
@@ -90,101 +79,153 @@ export default function Portfolio() {
 
       {/* ABOUT SUMMARY */}
       <FadeInWhenVisible>
-      <section id="about" className="max-w-6xl mx-auto px-6 py-12 space-y-8">
-      <div className="bg-white rounded-2xl p-6 shadow">
-        <h2 className="text-2xl font-bold">ABOUT ME</h2>
-        <p className="mt-3 text-gray-600">
-          3+ years of experience in full product development lifecycle — concept to
-          production. Experienced in fast-paced startup environments, producing
-          manufacturable CAD models, 2D drawings (DXF), BOMs and assembly
-          documentation.
-        </p>
-      </div>
-
-      {/* STATS */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {[
-          { number: "3+", label: "Years Experience" },
-          { number: "10+", label: "Projects Completed" },
-          { number: "4+", label: "Years CAD Experience" },
-        ].map((stat, i) => (
-          <div
-            key={i}
-            className="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/10 
-                      transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-[#22c55e]/50 hover:shadow-[0_0_25px_rgba(34,197,94,0.2)]"
-          >
-            <h3 className="text-3xl font-bold text-[#22c55e] group-hover:text-[#4ade80] transition-colors duration-300">
-              {stat.number}
-            </h3>
-            <p className="text-gray-300 mt-2 group-hover:text-[#a7f3d0] transition-colors duration-300">
-              {stat.label}
+        <section id="about" className="max-w-6xl mx-auto px-6 py-12 space-y-8">
+          <div className="bg-white rounded-2xl p-6 shadow">
+            <h2 className="text-2xl font-bold">ABOUT ME</h2>
+            <p className="mt-3 text-gray-600">
+              Mechanical engineer having experience in full product development
+              lifecycle — concept to production. Experienced in fast-paced
+              startup environments, producing manufacturable CAD models, 2D
+              drawings (DXF), BOMs and assembly documentation.
             </p>
           </div>
-        ))}
-      </div>
 
-      {/* SKILLS SECTION */}
-      <div className="bg-white rounded-2xl p-6 shadow">
-        <h3 className="text-lg font-semibold mb-4 border-b pb-2">Technical Skills</h3>
-
-        <div className="space-y-3 text-gray-600">
-          <div className="flex flex-col md:flex-row md:items-start">
-            <span className="font-semibold w-48 shrink-0">Software & CAD:</span>
-            <span>
-              SolidWorks, PTC Creo, Onshape, Siemens NX, AutoCAD (Basic), Windchill (Basic)
-            </span>
+          {/* STATS */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { number: "3+", label: "Years Experience" },
+              { number: "10+", label: "Projects Completed" },
+              { number: "4+", label: "Years CAD Experience" },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/10 
+                      transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-[#22c55e]/50 hover:shadow-[0_0_25px_rgba(34,197,94,0.2)]"
+              >
+                <h3 className="text-3xl font-bold text-[#22c55e] group-hover:text-[#4ade80] transition-colors duration-300">
+                  {stat.number}
+                </h3>
+                <p className="text-gray-300 mt-2 group-hover:text-[#a7f3d0] transition-colors duration-300">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-start">
-            <span className="font-semibold w-48 shrink-0">Programming:</span>
-            <span>Basic C++, Basic Python</span>
+          {/* CAD SOFTWARES */}
+          <div className="bg-white rounded-2xl p-6 shadow">
+            <h3 className="text-lg font-semibold mb-4 border-b pb-2">
+              CAD Softwares
+            </h3>
+            <div className="flex flex-wrap gap-6 items-center justify-center">
+              <img
+                src="/images/icons/solidworks.png"
+                alt="SolidWorks"
+                className="h-10"
+              />
+              <img
+                src="/images/icons/creo.png"
+                alt="Creo Parametric"
+                className="h-10"
+              />
+              <img
+                src="/images/icons/siemensnx.png"
+                alt="Siemens NX"
+                className="h-10"
+              />
+              <img
+                src="/images/icons/autodeskinventor.png"
+                alt="Autodesk Inventor"
+                className="h-10"
+              />
+            </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-start">
-            <span className="font-semibold w-48 shrink-0">Engineering Tools:</span>
-            <span>Manufacturable 2D Drawings, Basic Finite Element Analysis (FEA)</span>
+          {/* SKILLS SECTION */}
+          <div className="bg-white rounded-2xl p-6 shadow">
+            <h3 className="text-lg font-semibold mb-4 border-b pb-2">
+              Technical Skills
+            </h3>
+
+            <div className="space-y-3 text-gray-600">
+              <div className="flex flex-col md:flex-row md:items-start">
+                <span className="font-semibold w-48 shrink-0">
+                  Software & CAD:
+                </span>
+                <span>
+                  SolidWorks, Creo Parametric, Siemens NX, Autodesk Inventor
+                </span>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:items-start">
+                <span className="font-semibold w-48 shrink-0">Programming:</span>
+                <span>Basic C++, Basic Python</span>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:items-start">
+                <span className="font-semibold w-48 shrink-0">
+                  Engineering Tools:
+                </span>
+                <span>
+                  Manufacturable 2D Drawings, BOM, Part Lists, Basic Finite
+                  Element Analysis (FEA)
+                </span>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:items-start">
+                <span className="font-semibold w-48 shrink-0">
+                  Manufacturing Methods:
+                </span>
+                <span>
+                  Design for Manufacturing and Assembly (DFMA), 3D Printing,
+                  Rapid Prototyping
+                </span>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:items-start">
+                <span className="font-semibold w-48 shrink-0">Other:</span>
+                <span>
+                  MS Office (Word, Excel, PowerPoint), Problem-Solving,
+                  Documentation
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-start">
-            <span className="font-semibold w-48 shrink-0">Manufacturing Methods:</span>
-            <span>Design for Manufacturing and Assembly (DFMA), 3D Printing, Rapid Prototyping</span>
+          {/* PORTFOLIO STATEMENT */}
+          <div className="bg-white rounded-2xl p-6 shadow">
+            <h3 className="text-lg font-semibold mb-2">Portfolio Statement</h3>
+            <p className="text-gray-600">
+              This portfolio demonstrates a broad range of design and
+              engineering. It includes expertise in part design, large-scale
+              assembly development, special machine construction, and system
+              integration, with a focus on manufacturability, precision, and
+              compliance with engineering standards. The work reflects
+              proficiency in CAD modelling, prototyping, and technical
+              documentation, showcasing the ability to deliver innovative,
+              production-ready solutions across diverse mechanical and product
+              design applications.
+            </p>
           </div>
-
-          <div className="flex flex-col md:flex-row md:items-start">
-            <span className="font-semibold w-48 shrink-0">Other:</span>
-            <span>MS Office, Problem-Solving, Documentation</span>
-          </div>
-        </div>
-      </div>
-
-      {/* PORTFOLIO STATEMENT */}
-      <div className="bg-white rounded-2xl p-6 shadow">
-        <h3 className="text-lg font-semibold mb-2">Portfolio Statement</h3>
-        <p className="text-gray-600">
-          This portfolio demonstrates a broad range of design and engineering skills
-          across UAVs, payload mechanisms, launchers and GCS units. Emphasis on
-          manufacturability, precision and standards compliance.
-        </p>
-      </div>
-      </section>  
+        </section>
       </FadeInWhenVisible>
-        
+
       {/* PROJECTS */}
       <FadeInWhenVisible>
         <Projects />
       </FadeInWhenVisible>
-      
-     {/* INTERNSHIPS & CERTIFICATES */}
+
+      {/* INTERNSHIPS & CERTIFICATES */}
       <FadeInWhenVisible>
         <InternshipsAndCertificates />
       </FadeInWhenVisible>
 
-     {/* 2D CAD SCREENSHOTS */}
-      <FadeInWhenVisible>
+      {/* 2D CAD SCREENSHOTS */}
+      {/* <FadeInWhenVisible>
         <CadScreenshots />
-      </FadeInWhenVisible>
+      </FadeInWhenVisible> */}
 
-     {/* 2D DRAWINGS */}
+      {/* 2D DRAWINGS */}
       <FadeInWhenVisible>
         <DrawingsSection />
       </FadeInWhenVisible>

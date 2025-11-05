@@ -11,8 +11,7 @@ export default function Contact() {
             
           </h2>
           <p className="mt-3 text-gray-600">
-            I am available for part-time & full-time positions. For inquiries,
-            please email:{" "}
+          Please contact to learn more about me, email:{" "}
             <a
               href="mailto:osama.ather@outlook.com"
               className="text-black underline"
@@ -48,7 +47,7 @@ export default function Contact() {
           {/* LOCATION */}
           <div className="mt-8 flex justify-center items-center gap-2">
             <FaMapMarkerAlt className="text-black text-lg" />
-            <span className="font-medium">Cottbus, Germany</span>
+            <span className="font-medium">Germany</span>
           </div>
 
           {/* SOCIAL ICONS */}
@@ -80,8 +79,7 @@ export default function Contact() {
           </div>
 
           <p className="mt-6 text-sm text-gray-500 text-center">
-            Disclaimer: Images and screenshots in this portfolio are provided by
-            the owner and should not contain confidential or proprietary data.
+            Disclaimer: All Information Belongs To ENGR. Muhammad Osama.
           </p>
         </div>
       </footer>

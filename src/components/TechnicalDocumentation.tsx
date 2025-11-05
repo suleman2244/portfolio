@@ -19,7 +19,15 @@ export default function TechnicalDocumentation() {
   return (
     <section id="techdoc" className="max-w-6xl mx-auto px-6 py-12">
       <div className="bg-white rounded-2xl p-6 shadow">
-        <h2 className="text-3xl font-bold mb-6">TECHNICAL DOCUMENTATION</h2>
+        <h2 className="text-3xl font-bold mb-4">TECHNICAL DOCUMENTATION</h2>
+
+        {/* ✅ DESCRIPTION ABOVE IMAGE */}
+        <p className="text-gray-600 text-[15px] leading-relaxed mb-6">
+          Vector-based 2D CAD drawings prepared for CNC laser cutting and fabrication. 
+          These technical documents include detailed annotations, precise tolerances, 
+          and machining-ready geometry ensuring manufacturing accuracy and consistency 
+          across mechanical assemblies.
+        </p>
 
         {/* FULL-WIDTH IMAGE CARD */}
         <div
@@ -28,14 +36,14 @@ export default function TechnicalDocumentation() {
         >
           <img
             src="/images/td.jpg"
-            alt="Technical documentation"
+            alt="Technical documentation preview"
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
 
           {/* Hover overlay */}
           <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition">
-          <FaRegEye className="text-4xl mb-2 animate-fade-in" />
-          <CgArrowLongRight className="text-2xl transform -translate-x-6 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100" />
+            <FaRegEye className="text-4xl mb-2 animate-fade-in" />
+            <CgArrowLongRight className="text-2xl transform -translate-x-6 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100" />
           </div>
         </div>
 

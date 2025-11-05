@@ -18,10 +18,12 @@ export default function DrawingsSection() {
     <section id="drawings" className="max-w-6xl mx-auto px-6 py-16">
       <div className="bg-white rounded-2xl p-8 shadow-lg">
         <h2 className="text-3xl font-bold">2D DRAWINGS & CNC FILES</h2>
-        <p className="mt-4 text-gray-600 text-[15px] leading-relaxed">
-          I generate DXF and machining-ready 2D drawings for laser cutting and CNC routing,
-          tailored for local and offshore manufacturers.
-        </p>
+          <ul className="mt-4 text-gray-600 text-[15px] leading-relaxed list-disc pl-6 space-y-2">
+            <li>Created Part / Assembly Drawings For Seamless Production.</li>
+            <li>Created 2D Drawings (DXF) For Machining (CNC LASER + CNC ROUTER).</li>
+            <li>Created 2D Drawings (DXF) For Local And Chinese Manufacturers.</li>
+            <li>Created 2D Drawings (DXF) For Technicians For Seamless Production.</li>
+          </ul>
 
         {/* IMAGES GRID */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
