@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CgArrowLongRight } from "react-icons/cg";
 import { FaRegEye } from "react-icons/fa";
@@ -320,10 +320,12 @@ const personalProjects = [
 const allProjects = [...projects, ...personalProjects];
 
 export default function Projects() {
+  const modalRef = useRef<HTMLDivElement | null>(null);
   const [activeProject, setActiveProject] = useState<number | null>(null);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
+  // for handling escape key
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && activeProject !== null) setActiveProject(null);
@@ -336,6 +338,21 @@ export default function Projects() {
     setActiveProject(idx);
     setPhotoIndex(0);
   };
+
+// scroll modal into view & focus when opened
+  useEffect(() => {
+    if (activeProject !== null && modalRef.current) {
+      modalRef.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+
+      try {
+        (modalRef.current as HTMLElement).focus({ preventScroll: true } as FocusOptions);
+      } catch {
+        (modalRef.current as HTMLElement).focus();
+      }
+    }
+  }, [activeProject]);
+
+
 
   if (activeProject === null) {
     return (
@@ -426,153 +443,184 @@ export default function Projects() {
 
   return (
     <>
-      {/* BACK BUTTON */}
-      <motion.button
-        onClick={() => setActiveProject(null)}
-        className="fixed top-6 left-6 z-[10000] bg-white/90 hover:bg-white backdrop-blur-md rounded-full p-3 shadow-xl border transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+     {/* PROJECT DETAIL CONTAINER */}
+      <div
+        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[var(--bg-start)] to-[var(--bg-end)] px-4 sm:px-6 py-10 sm:py-16"
       >
-        <ChevronRight className="w-6 h-6 rotate-180" />
-      </motion.button>
-  
-      {/* PROJECT DETAIL CONTAINER */}
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto h-screen flex flex-col lg:flex-row gap-8 px-6 py-12 lg:py-24">
-          
+        <div
+          ref={modalRef}
+          tabIndex={-1}
+          className="relative max-w-7xl w-full flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-4"
+        >
           {/* LEFT: IMAGE CAROUSEL */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:w-1/2 flex flex-col items-center justify-center"
+            className="w-full lg:w-[55%] flex flex-col justify-start items-center"
           >
-            <div className="w-full max-w-2xl h-[500px] lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl relative">
-              {/* Main Image */}
-              <img
-                src={currentProject.images[photoIndex]}
-                alt={currentProject.title}
-                className="w-full h-full object-cover"
-              />
-              
-              {/* Navigation Dots */}
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
-                {currentProject.images.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setPhotoIndex(idx)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      idx === photoIndex 
-                        ? "bg-white scale-125 shadow-lg" 
-                        : "bg-white/60 hover:bg-white hover:scale-110"
-                    }`}
-                  />
-                ))}
-              </div>
-  
-              {/* Navigation Arrows */}
-              <button
-                onClick={() =>
-                  setPhotoIndex(
-                    (photoIndex - 1 + currentProject.images.length) %
-                      currentProject.images.length
-                  )
-                }
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
-              >
-                <ChevronRight className="w-6 h-6 rotate-180" />
-              </button>
-              <button
-                onClick={() =>
-                  setPhotoIndex((photoIndex + 1) % currentProject.images.length)
-                }
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-  
-              {/* Fullscreen Button */}
-              <button
-                onClick={() => setLightboxOpen(true)}
-                className="absolute top-4 right-4 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
-              >
-                <FaRegEye className="w-5 h-5" />
-              </button>
+            <div className="group relative w-full h-[280px] sm:h-[400px] lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl cursor-pointer">
+        {/* IMAGE */}
+        <button
+          onClick={() => setLightboxOpen(true)}
+          className="w-full h-full relative"
+        >
+          <img
+            src={currentProject.images[photoIndex]}
+            alt={currentProject.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+
+          {/* HOVER OVERLAY */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <div className="bg-black/50 backdrop-blur-md absolute inset-0"></div>
+            <div className="relative z-10 flex flex-col items-center text-white">
+              <FaRegEye className="text-4xl mb-2 animate-fade-in" />
+              <CgArrowLongRight className="text-2xl transform -translate-x-6 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100" />
             </div>
-  
-            {/* Thumbnail Strip */}
-            <div className="flex gap-2 mt-6 overflow-x-auto pb-2 max-w-full scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
-              {currentProject.images.map((img, idx) => (
-                <motion.button
-                  key={idx}
-                  onClick={() => setPhotoIndex(idx)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`flex-shrink-0 w-20 h-14 rounded-xl overflow-hidden border-4 transition-all duration-300 ${
-                    idx === photoIndex
-                      ? "border-green-500 shadow-lg"
-                      : "border-transparent hover:border-gray-300"
-                  }`}
-                >
-                  <img
-                    src={img}
-                    alt={`${currentProject.title} ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-  
-          {/* RIGHT: PROJECT DESCRIPTION */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:w-1/2 flex flex-col justify-center"
+          </div>
+        </button>
+
+        {/* Dots */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          {currentProject.images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setPhotoIndex(idx)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                idx === photoIndex
+                  ? "bg-white scale-125 shadow-lg"
+                  : "bg-white/60 hover:bg-white hover:scale-110"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Arrows */}
+        <button
+          onClick={() =>
+            setPhotoIndex(
+              (photoIndex - 1 + currentProject.images.length) %
+                currentProject.images.length
+            )
+          }
+          className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-md transition-all duration-300 hover:scale-110"
+        >
+          <ChevronRight className="w-6 h-6 rotate-180" />
+        </button>
+
+        <button
+          onClick={() =>
+            setPhotoIndex((photoIndex + 1) % currentProject.images.length)
+          }
+          className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-md transition-all duration-300 hover:scale-110"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Thumbnails */}
+      <div className="flex gap-2 mt-4 overflow-x-auto pb-2 max-w-full scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+        {currentProject.images.map((img, idx) => (
+          <motion.button
+            key={idx}
+            onClick={() => setPhotoIndex(idx)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`flex-shrink-0 w-20 h-14 rounded-xl overflow-hidden border-4 transition-all duration-300 ${
+              idx === photoIndex
+                ? "border-green-500 shadow-lg"
+                : "border-transparent hover:border-gray-300"
+            }`}
           >
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-12 shadow-2xl max-h-[70vh] overflow-y-auto">
-              <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
-                {currentProject.title}
-              </h1>
-  
-              {currentProject.subtitle && (
-                <h2 className="text-xl text-gray-600 font-semibold mb-8 opacity-90">
-                  {currentProject.subtitle}
-                </h2>
-              )}
-  
-              <p className="text-lg text-gray-700 leading-relaxed mb-8 opacity-95">
-                {currentProject.description}
-              </p>
-  
-              <div className="mb-12">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Project Overview
-                </h3>
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  {currentProject.details}
-                </p>
-              </div>
-  
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Key Highlights
-                </h3>
-                <ul className="space-y-3">
-                  {currentProject.bullets.map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-lg">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-gray-700">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
+            <img
+              src={img}
+              alt={`${currentProject.title} ${idx + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </motion.button>
+        ))}
+      </div>
+    </motion.div>
+
+    {/* RIGHT: PROJECT DESCRIPTION */}
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="w-full lg:w-[40%] flex flex-col justify-start"
+    >
+       {/* ❌ CLOSE BUTTON */}
+       <button
+        onClick={() => setActiveProject(null)}
+        className="
+          absolute 
+          top-4 
+          right-4
+          z-50 
+          rounded-full 
+          p-3 
+          shadow-lg 
+          border border-[var(--border-glass)] 
+          bg-[var(--card-bg)] 
+          text-[var(--text-primary)] 
+          hover:shadow-2xl 
+          transition-all duration-300 
+          hover:scale-110 
+          hover:bg-[var(--bg-start)]
+          lg:right-[2.5rem]
+          xl:right-[3rem]
+        "
+        aria-label="Close"
+      >
+        ✕
+      </button>
+
+
+      <div
+        className="rounded-3xl p-8 sm:p-10 shadow-2xl max-h-[70vh] overflow-y-auto backdrop-blur-xl border border-[var(--border-glass)] bg-[var(--card-bg)] text-[var(--text-primary)] scrollbar-green"
+      >
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
+          {currentProject.title}
+        </h1>
+
+        {currentProject.subtitle && (
+          <h2 className="text-lg sm:text-xl text-gray-600 font-semibold mb-6 opacity-90">
+            {currentProject.subtitle}
+          </h2>
+        )}
+
+        <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 opacity-95">
+          {currentProject.description}
+        </p>
+
+        <div className="mb-10">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+            Project Overview
+          </h3>
+          <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
+            {currentProject.details}
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+            Key Highlights
+          </h3>
+          <ul className="space-y-3">
+            {currentProject.bullets.map((bullet, idx) => (
+              <li key={idx} className="flex items-start gap-3 text-base sm:text-lg">
+                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                <span className="text-gray-600">{bullet}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-  
+    </motion.div>
+  </div>
+</div>
+
       {/* Fullscreen Lightbox */}
       <Lightbox
         open={lightboxOpen}
