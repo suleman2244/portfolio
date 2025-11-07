@@ -32,6 +32,12 @@ interface Project {
   bullets: string[];
 }
 
+interface PersonalProject {
+  title: string;
+  details: string;
+  images: string[];
+}
+
 const projects: Project[] = [
   {
     title: "Eco-Friendly Bricks",
@@ -170,7 +176,7 @@ const projects: Project[] = [
   },
 ];
 
-const personalProjects = [
+const personalProjects: PersonalProject[] = [
   {
     title: "G.I. Joe Night Raven Cobra",
     details:
@@ -219,7 +225,6 @@ const personalProjects = [
       "/images/personal-pro/lighter5.jpg",
       "/images/personal-pro/lighter6.jpg",
     ],
-
   },
   {
     title: "High-Speed Mosquito Trap Fan",
@@ -230,11 +235,6 @@ const personalProjects = [
       "/images/personal-pro/mtrap2.jpg",
       "/images/personal-pro/mtrap3.jpg",
     ],
-    bullets: [
-      "Hydraulic syringe system",
-      "Transparent fluid chamber for visualization",
-      "Demonstrates Pascal’s principle",
-    ],
   },
   {
     title: "Bottle Rack",
@@ -243,11 +243,6 @@ const personalProjects = [
     images: [
       "/images/personal-pro/br1.jpg",
       "/images/personal-pro/br2.jpg",
-    ],
-    bullets: [
-      "Hydraulic syringe system",
-      "Transparent fluid chamber for visualization",
-      "Demonstrates Pascal’s principle",
     ],
   },
   {
@@ -261,11 +256,6 @@ const personalProjects = [
       "/images/personal-pro/dogpot4.jpg",
       "/images/personal-pro/dogpot5.jpg",
     ],
-    bullets: [
-      "Hydraulic syringe system",
-      "Transparent fluid chamber for visualization",
-      "Demonstrates Pascal’s principle",
-    ],
   },
   {
     title: "Bee Truck",
@@ -274,11 +264,6 @@ const personalProjects = [
     images: [
       "/images/personal-pro/beetruck1.jpg",
       "/images/personal-pro/beetruck2.jpg",
-    ],
-    bullets: [
-      "Hydraulic syringe system",
-      "Transparent fluid chamber for visualization",
-      "Demonstrates Pascal’s principle",
     ],
   },
 ];
@@ -406,6 +391,8 @@ export default function Projects() {
   }
 
   const currentProject = allProjects[activeProject!];
+  const isFeaturedProject = activeProject! < projects.length;
+  const featuredProject = isFeaturedProject ? projects[activeProject!] : null;
 
   return (
     <>
@@ -542,14 +529,16 @@ export default function Projects() {
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
                 {currentProject.title}
               </h1>
-              {currentProject.subtitle && (
+              {featuredProject && featuredProject.subtitle && (
                 <h2 className="text-lg sm:text-xl text-gray-600 font-semibold mb-6 opacity-90">
-                  {currentProject.subtitle}
+                  {featuredProject.subtitle}
                 </h2>
               )}
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 opacity-95">
-                {currentProject.description}
-              </p>
+              {featuredProject && (
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 opacity-95">
+                  {featuredProject.description}
+                </p>
+              )}
               <div className="mb-10">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                   Project Overview:
@@ -558,22 +547,24 @@ export default function Projects() {
                   {currentProject.details}
                 </p>
               </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
-                  Key Highlights
-                </h3>
+              {featuredProject && featuredProject.bullets && featuredProject.bullets.length > 0 && (
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                    Key Highlights
+                  </h3>
                   <ul className="space-y-3">
-                  {currentProject.bullets.map((bullet, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-3 text-base sm:text-lg"
-                    >
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-gray-600">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                    {featuredProject.bullets.map((bullet: string, idx: number) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-3 text-base sm:text-lg"
+                      >
+                        <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                        <span className="text-gray-600">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
@@ -584,9 +575,9 @@ export default function Projects() {
         index={photoIndex}
         slides={currentProject.images.map((src) => ({
           src,
-          description: `${currentProject.title} — ${
-            currentProject.subtitle || ""
-          }`,
+          description: featuredProject && featuredProject.subtitle
+            ? `${currentProject.title} — ${featuredProject.subtitle}`
+            : `${currentProject.title}`,
         }))}
         on={{ view: ({ index }) => setPhotoIndex(index) }}
         plugins={[Captions, Thumbnails]}
