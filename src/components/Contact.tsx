@@ -79,7 +79,7 @@ export default function Contact() {
           </div>
 
           <p className="mt-6 text-sm text-gray-500 text-center">
-            Disclaimer: All Information Belongs To ENGR. Muhammad Osama.
+            Disclaimer: All Information Belongs To Engr. Muhammad Osama.
           </p>
         </div>
       </footer>

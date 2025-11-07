@@ -57,7 +57,7 @@ export default function Portfolio() {
               download="Osama-CV-and-Portfolio.rar"
               className="inline-block border border-black px-5 py-3 rounded-2xl hover:bg-green hover:text-white transition"
             >
-              Download CV & Presentation
+              Download CV & Portfolio
             </a>
           </div>
         </div>
@@ -67,14 +67,15 @@ export default function Portfolio() {
           initial={{ scale: 0.98, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.15 }}
-          className="w-full md:w-1/3 rounded-2xl overflow-hidden shadow-lg"
+          className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg border-4 border-none mx-auto md:mx-0"
         >
           <img
             src="/images/osama-pfp.jpg"
-            alt="OSAMA PFP"
-            className="w-full h-64 object-cover"
+            alt="Osama Profile"
+            className="w-full h-full object-cover"
           />
         </motion.div>
+
       </header>
 
       {/* ABOUT SUMMARY */}
@@ -93,7 +94,7 @@ export default function Portfolio() {
           {/* STATS */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { number: "3+", label: "Years Experience" },
+              { number: "2+", label: "Years Experience" },
               { number: "10+", label: "Projects Completed" },
               { number: "4+", label: "Years CAD Experience" },
             ].map((stat, i) => (
@@ -117,33 +118,53 @@ export default function Portfolio() {
             <h3 className="text-lg font-semibold mb-4 border-b pb-2">
               CAD Softwares
             </h3>
-            <div className="flex flex-wrap gap-6 items-center justify-center">
-              <img
-                src="/images/icons/solidworks.png"
-                alt="SolidWorks"
-                className="h-10"
-              />
-              <img
-                src="/images/icons/creo.png"
-                alt="Creo Parametric"
-                className="h-10"
-              />
-              <img
-                src="/images/icons/siemensnx.png"
-                alt="Siemens NX"
-                className="h-10"
-              />
-              <img
-                src="/images/icons/autodeskinventor.png"
-                alt="Autodesk Inventor"
-                className="h-10"
-              />
+            <div className="flex flex-wrap gap-10 items-center justify-center">
+              {/* SolidWorks */}
+              <div className="flex flex-col items-center">
+                <img
+                  src="/images/icons/solidworks-logo.png"
+                  alt="SolidWorks"
+                  className="h-20"
+                />
+                <p className="mt-2 text-md font-bold text-gray-600">SolidWorks</p>
+              </div>
+
+              {/* Creo Parametric */}
+              <div className="flex flex-col items-center">
+                <img
+                  src="/images/icons/creo-logo.png"
+                  alt="Creo Parametric"
+                  className="h-20"
+                />
+                <p className="mt-2 text-md font-bold text-gray-600">Creo Parametric</p>
+              </div>
+
+              {/* Siemens NX */}
+              <div className="flex flex-col items-center">
+                <img
+                  src="/images/icons/siemensnx-logo.png"
+                  alt="Siemens NX"
+                  className="h-20"
+                />
+                <p className="mt-2 text-md font-bold text-gray-600">Siemens NX</p>
+              </div>
+
+              {/* Autodesk Inventor */}
+              <div className="flex flex-col items-center">
+                <img
+                  src="/images/icons/autodeskinventor-logo.png"
+                  alt="Autodesk Inventor"
+                  className="h-20"
+                />
+                <p className="mt-2 text-md font-bold text-gray-600">Autodesk Inventor</p>
+              </div>
             </div>
+
           </div>
 
           {/* SKILLS SECTION */}
           <div className="bg-white rounded-2xl p-6 shadow">
-            <h3 className="text-lg font-semibold mb-4 border-b pb-2">
+            <h3 className="text-lg font-bold mb-4 border-b pb-2">
               Technical Skills
             </h3>
 
