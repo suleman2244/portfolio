@@ -52,13 +52,27 @@ export default function Portfolio() {
               View Projects
             </a>
 
-            <a
-              href="/assets/Osama-CV-and-Portfolio.rar"
-              download="Osama-CV-and-Portfolio.rar"
+            <button
+              onClick={() => {
+                const files = [
+                  { url: "/assets/OSAMA-CV.pdf", name: "OSAMA-CV.pdf" },
+                  { url: "/assets/OSAMA-PORTFOLIO-CAD.pptx", name: "OSAMA-PORTFOLIO-CAD.pptx" },
+                ];
+
+                files.forEach((file) => {
+                  const link = document.createElement("a");
+                  link.href = file.url;
+                  link.setAttribute("download", file.name);
+                  link.setAttribute("target", "_blank");
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                });
+              }}
               className="inline-block border border-black px-5 py-3 rounded-2xl hover:bg-green hover:text-white transition"
             >
               Download CV & Portfolio
-            </a>
+            </button>
           </div>
         </div>
 
