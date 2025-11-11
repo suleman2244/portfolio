@@ -14,7 +14,7 @@ import TechnicalDocumentation from "./TechnicalDocumentation";
 import PartsAndPrototyping from "./PartsAndPrototyping";
 import DrawingsSection from "./DrawingsSection";
 import InternshipsAndCertificates from "./InternshipsAndCertificates";
-import CadScreenshots from "./CadScreenshots";
+// import CadScreenshots from "./CadScreenshots";
 import Contact from "./Contact";
 import Projects from "./Projects";
 
@@ -70,9 +70,9 @@ export default function Portfolio() {
           className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg border-4 border-none mx-auto md:mx-0"
         >
           <img
-            src="/images/osama-pfp.jpg"
+            src="/images/osama-hero.jpg"
             alt="Osama Profile"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-110 mt-[10px]"
           />
         </motion.div>
 
