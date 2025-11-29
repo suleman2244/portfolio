@@ -72,7 +72,7 @@ export default function Portfolio() {
           <img
             src="/images/osama-hero.jpg"
             alt="Osama Profile"
-            className="w-full h-full object-cover scale-110 mt-[10px]"
+            className="w-full h-full object-cover scale-150 mt-[40px]"
           />
         </motion.div>
 
