@@ -1,0 +1,176 @@
+\documentclass[a4paper,10pt]{article}
+
+% --- Packages ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato} % Modern, clean font
+\usepackage[margin=1.2cm, top=1.2cm, bottom=1.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{fontawesome5} % For icons
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tikz} % For graphical elements
+\usepackage{paracol} % For robust multi-column layouts
+
+% --- Colors ---
+\definecolor{primary}{HTML}{004E8A} % Deep Professional Blue
+\definecolor{accent}{HTML}{2E86C1} % Bright Blue for highlights
+\definecolor{darktext}{HTML}{1A202C} % Near Black
+\definecolor{lighttext}{HTML}{4A5568} % Dark Grey
+\definecolor{bglight}{HTML}{F7FAFC} % Very light grey/blue
+
+% --- Page Settings ---
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+\setcounter{secnumdepth}{0}
+
+% --- Custom Commands ---
+\titleformat{\section}
+  {\Large\bfseries\color{primary}\uppercase}
+  {}
+  {0em}
+  {}
+  [{\titlerule[1pt]}]
+\titlespacing{\section}{0pt}{1.2em}{0.6em}
+
+\newcommand{\jobheader}[4]{%
+    \vspace{0.4em}
+    {\large\bfseries\color{darktext} #1} \hfill {\color{darktext}\faCalendar* \ #2} \\
+    {\textit{\color{accent} #3}} \hfill {\small\faMapMarker* \ #4}
+    \vspace{0.2em}
+}
+
+\newcommand{\subjobheader}[2]{%
+    \vspace{0.1em}
+    {\small\textit{\color{lighttext} \faAngleRight \ #1} \hfill #2} \\
+}
+
+\newcommand{\project}[3]{%
+    \vspace{0.3em}
+    {\textbf{#1}} $\mid$ \href{#2}{\color{accent}\underline{Link}} \\
+    {\small #3}
+}
+
+\newcommand{\skilltag}[1]{%
+    \tikz[baseline]\node[anchor=base, draw=primary!15, fill=bglight, rounded corners=3pt, inner xsep=4pt, inner ysep=2.5pt, text=darktext]{\small #1};%
+}
+
+\newcommand{\contact}[3]{%
+    \href{#2}{\mbox{\color{darktext}\faIcon{#1} \ #3}}%
+}
+
+% --- Document Content ---
+\begin{document}
+
+% --- Header Section ---
+\begin{minipage}[t]{0.70\textwidth}
+    {\fontsize{28}{32}\bfseries\color{primary} SULAMAN KHAN} \\[0.3em]
+    {\Large\bfseries\color{darktext} Lead Front-End Engineer | AI \& SaaS Architect} \\[0.5em]
+    {\color{lighttext}
+    Strategic \textbf{Lead Engineer} with 5+ years of experience architecting high-performance \textbf{FinTech (50M+ users)} and \textbf{GenAI SaaS} platforms. Expert in \textbf{React, TypeScript}, and \textbf{Enterprise AI Integration}. Proven track record in mentoring teams, standardizing design systems, and driving product-led growth in the German tech ecosystem.
+    }
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.26\textwidth}
+    \begin{flushright}
+        \includegraphics[width=3.5cm, keepaspectratio]{salmanphoto.jpg}
+    \end{flushright}
+\end{minipage}
+
+\vspace{0.2em}
+
+% --- Contact Info Bar ---
+\begin{center}
+    \footnotesize
+    \contact{map-marker-alt}{}{Berlin, Germany} \quad $\bullet$ \quad
+    \contact{envelope}{mailto:sulamankhan54425@gmail.com}{sulamankhan54425@gmail.com} \quad $\bullet$ \quad
+    \contact{phone}{tel:+4917667586298}{+49 176 67586298} \\
+    \vspace{0.3em}
+    \contact{linkedin}{https://www.linkedin.com/in/sulaman-khan-1254761b5/}{LinkedIn} \quad $\bullet$ \quad
+    \contact{github}{https://github.com/suleman2244}{GitHub} \quad $\bullet$ \quad
+    \contact{globe}{https://dashing-centaur-150fb3.netlify.app/}{Portfolio Site} \\
+    \vspace{0.3em}
+    \textbf{Languages:} English (Fluent) $\bullet$ German (A1/A2 - [Update Level]) $\bullet$ Urdu (Native) \\
+    \textbf{Status:} German Master's Graduate | Full Work Eligibility | No Visa Sponsorship Required
+\end{center}
+
+\vspace{0.2em}
+
+% --- Skills Section ---
+\section{Technical Expertise}
+\begin{description}[style=multiline, leftmargin=3.5cm, font=\bfseries\color{primary}]
+    \item[Core Stack] \skilltag{React.js/Next.js} \skilltag{TypeScript} \skilltag{Node.js} \skilltag{Flutter} \skilltag{HTML5/CSS3 (SASS)}
+    \item[Architecture] \skilltag{Micro-Frontends} \skilltag{Design Systems} \skilltag{CI/CD Pipelines} \skilltag{Offline-First Architecture}
+    \item[Interactive \& AI] \skilltag{GenAI Integration (LLMs)} \skilltag{WebSockets} \skilltag{Canvas API} \skilltag{SVG Rendering}
+    \item[Quality \& Tools] \skilltag{Jest/Cypress/Playwright} \skilltag{AWS/Azure} \skilltag{WCAG 2.1 Accessibility} \skilltag{GitOps}
+\end{description}
+
+% --- Experience Section ---
+\section{Professional Experience}
+
+\jobheader{Senior Frontend Developer (GenAI Lead)}{Jan 2025 -- Aug 2025}{Visionet Systems Inc.}{Remote / USA}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=2pt]
+    \item \textbf{Generative AI Strategy:} Spearheaded development of \textbf{Tapestry Stitch AI}, an enterprise LLM chatbot. Engineered "Text-to-Design" features saving designers 15+ hours/week.
+    \item \textbf{High-Scale Real-Time UI:} Architected a WebSocket-based chat system handling \textbf{10K+ concurrent connections} with sub-100ms latency.
+    \item \textbf{Performance Optimization:} Optimized Webpack/Vite configurations, reducing final bundle size by \textbf{28\%} and improving Lighthouse scores to 95+.
+    \item \textbf{Standardization:} Built a cross-company React component library, accelerating future feature delivery by \textbf{40\%}.
+    \item \textit{\small \textbf{Tech Stack:} React, TypeScript, Vite, WebSockets, OpenAI API, AWS Lambda, Tailwind CSS.}
+\end{itemize}
+
+\jobheader{Senior Software Engineer (Promoted from Associate)}{Oct 2021 -- May 2025}{Systems Limited}{Lahore, Pakistan}
+\subjobheader{Senior Frontend Developer}{Jan 2025 -- May 2025}
+\subjobheader{Associate/Junior Frontend Developer}{Oct 2021 -- Dec 2024}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=2pt]
+    \item \textbf{FinTech Leadership (JazzCash):} Lead developer for Pakistan's largest digital wallet (\textbf{50M+ users}). Engineered critical payment gateways and biometric authentication modules.
+    \item \textbf{Legacy Evolution:} Led migration of 3 monolithic AngularJS applications to modern React/TypeScript architectures, resulting in a \textbf{45\% increase in dev velocity}.
+    \item \textbf{Offline-First Engineering (Y.Hata):} Architected a logistics platform for a US food distributor using \textbf{SQLite/Hive} for $100\%$ data sync reliability in zero-connectivity environments.
+    \item \textbf{GovTech Impact:} Scaled the \textbf{HEC National Education Portal}, optimizing REST API consumption to reduce first-contentful-paint (FCP) by \textbf{1.2s}.
+    \item \textbf{Mentorship:} Mentored 4 junior engineers; implemented \textbf{WCAG 2.1 AA} accessibility audits and code quality gates using GitHub Actions.
+    \item \textit{\small \textbf{Tech Stack:} React Native, Angular, TypeScript, Redux, Node.js, SQLite, GitHub Actions, SASS.}
+\end{itemize}
+
+\jobheader{Web Application Developer (Intern)}{Aug 2021 -- Oct 2021}{Qraftec}{Lahore, Pakistan}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=1pt]
+    \item Delivered 3 production-ready React project modules; initiated the internal UI component library.
+\end{itemize}
+
+% --- Education ---
+\section{Education}
+\textbf{M.Sc. Artificial Intelligence} \hfill Jan 2024 -- Aug 2025 (Expected) \\
+Brandenburg University of Technology (BTU), Cottbus, Germany \hfill \textit{Grade: [Insert Grade/GPA]} \\
+\textbf{B.Sc. Computer Science} \hfill 2017 -- 2021 \\
+University of Engineering and Technology (UET), Lahore, Pakistan
+
+% --- Featured Projects ---
+\section{Impactful Projects}
+\begin{paracol}{2}
+    \project{JazzCash Super App}{https://apps.apple.com/il/app/jazzcash-your-mobile-account/id1224617688}{
+        FinTech behemoth. Scaled to \textbf{50M users}. Focused on Biometric Auth and Secure Transfers.
+    }
+    \switchcolumn
+    \project{Tapestry Stitch AI}{https://www.tapestry.com/}{
+        Leading the LLM-to-UI bridge. Visualized through Canvas API for real-time design synthesis.
+    }
+    \switchcolumn*
+    \project{Y.Hata Logistics}{https://www.yhata.com/}{
+        Enterprise B2B distribution. Custom sync engine for low-connectivity warehouses.
+    }
+    \switchcolumn
+    \project{HEC E-Services}{https://eservices.hec.gov.pk/}{
+        National portal serving millions of students. Focused on API performance & SEO.
+    }
+\end{paracol}
+
+% --- Footer ---
+\vfill
+\hrule
+\vspace{0.4em}
+\begin{footnotesize}
+    \color{lighttext}
+    Berlin, \today \hfill \textit{Sulaman Khan (Lead Engineer)}
+\end{footnotesize}
+
+\end{document}

@@ -2,141 +2,252 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ Put your custom colors and styles *after* the Tailwind layers */
-/* === Portfolio Dark Gloss Theme === */
 :root {
-  --bg-start: #071024;
-  --bg-end: #071827;
-  --text-primary: #e6eef8;
-  --text-muted: #94a3b8;
-  --accent: #22c55e;
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --shadow-glass: rgba(2, 6, 23, 0.6);
-  --radius: 16px;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  /* Default: Dark Theme */
+  --bg-dark: #030712;
+  --bg-card: rgba(17, 24, 39, 0.8);
+  --bg-card-hover: rgba(17, 24, 39, 0.95);
+  --accent-primary: #10b981;
+  --accent-secondary: #34d399;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(3, 7, 18, 0.8);
+  --gradient-start: #064e3b;
+  --gradient-end: #020617;
+
+  /* Tech Theme Variables - Dark Default */
+  --bg-tech-card: rgba(3, 7, 18, 0.6);
+  --border-tech: rgba(255, 255, 255, 0.08);
+  --segment-empty: rgba(255, 255, 255, 0.1);
+  --tech-corner-opacity: 0.5;
+}
+
+[data-theme='light'] {
+  --bg-dark: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --accent-primary: #059669;
+  --accent-secondary: #10b981;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-glass: rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(248, 250, 252, 0.8);
+  --gradient-start: #d1fae5;
+  --gradient-end: #f8fafc;
+
+  /* Tech Theme Variables - Light Mode */
+  --bg-tech-card: rgba(255, 255, 255, 0.7);
+  --border-tech: rgba(0, 0, 0, 0.1);
+  --segment-empty: rgba(0, 0, 0, 0.1);
+  --tech-corner-opacity: 0.8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 html {
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease;
 }
 
-/* --- Background & Base Text --- */
 body {
-  background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+  background-color: var(--bg-dark);
   color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  animation: fadeIn 0.5s ease-in-out;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Focus Indicators for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* --- Containers & Cards --- */
-.bg-white,
-.bg-gray-50,
-.bg-gray-100 {
-  background: var(--card-bg) !important;
+/* Glassmorphism Classes */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-glass);
-  border-radius: var(--radius);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-nav {
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 24px var(--shadow-glass);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-glass);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom Utilities */
+.portfolio-theme {
+  background: radial-gradient(circle at top left, var(--gradient-start) 0%, transparent 40%),
+    radial-gradient(circle at bottom right, var(--gradient-end) 0%, transparent 40%);
+  transition: background 0.5s ease;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-glass);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--accent-primary);
+  color: #064e3b;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border-glass);
   color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
 
-/* --- Text --- */
-.text-gray-900,
-.text-black {
-  color: var(--text-primary) !important;
+.btn-secondary:hover {
+  background: var(--border-glass);
+  transform: translateY(-2px);
 }
 
-.text-gray-600,
-.text-gray-500 {
-  color: var(--text-muted) !important;
-}
-
-.font-semibold,
-.font-bold {
-  color: var(--text-primary);
-}
-
-/* --- Accent text & links --- */
-a {
-  color: var(--text-primary);
-  text-decoration: none;
-}
-a:hover {
-  color: var(--accent);
-}
-
-/* --- Buttons --- */
-.bg-black {
-  background: linear-gradient(90deg, #16a34a, var(--accent)) !important;
-  color: #021009 !important;
-  border: none !important;
-  transition: all 0.2s ease;
-}
-.bg-black:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-}
-
-.border-black {
-  border-color: var(--accent) !important;
-  color: var(--accent);
-}
-.border-black:hover {
-  background: var(--accent);
-  color: #021009 !important;
-}
-
-/* --- Shadows for Images and Sections --- */
-.shadow,
-.shadow-lg {
-  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.7) !important;
-}
-
-/* --- Cards & Grid Items --- */
-.rounded-2xl,
-.rounded-lg {
-  border-radius: var(--radius);
-}
-
-/* --- Section Spacing --- */
-section,
-header,
-footer {
-  background: transparent;
-}
-
-/* --- Highlight titles --- */
-h1, h2, h3 {
-  color: var(--accent);
-}
-
-/* --- Smooth transitions --- */
-* {
-  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
-}
-
-/* Custom slim green scrollbar */
 .scrollbar-green::-webkit-scrollbar {
   width: 6px;
 }
 
-.scrollbar-green::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 .scrollbar-green::-webkit-scrollbar-thumb {
-  background-color: #22c55e; /* Tailwind green-500 */
+  background: rgba(16, 185, 129, 0.3);
   border-radius: 10px;
 }
 
 .scrollbar-green::-webkit-scrollbar-thumb:hover {
-  background-color: #16a34a; /* green-600 on hover */
+  background: var(--accent-primary);
+}
+
+/* --- ARCHITECT / TECH THEME UTILITIES --- */
+
+/* A subtle, sharp border for "tech" elements */
+.tech-border {
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.05);
+}
+
+/* For cards that need a more industrial/blueprint feel */
+/* For cards that need a more industrial/blueprint feel */
+.tech-card {
+  background: var(--bg-tech-card);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-tech);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Corner markers for that "Framed" look */
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--accent-primary);
+  border-left: 2px solid var(--accent-primary);
+  opacity: var(--tech-corner-opacity);
+}
+
+.tech-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--accent-primary);
+  border-right: 2px solid var(--accent-primary);
+  opacity: var(--tech-corner-opacity);
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* Matrix/Segmented Bar Container */
+.segment-container {
+  display: flex;
+  gap: 2px;
+}
+
+/* Individual Segments */
+.segment {
+  height: 8px;
+  flex: 1;
+  background: var(--segment-empty);
+  /* skew-x-12 for a slanted look if desired, but sticking to blocky for now */
+  transform: skewX(-12deg);
+}
+
+.segment.filled {
+  background: var(--accent-primary);
+  box-shadow: 0 0 5px var(--accent-primary);
+}
+
+.segment.filled-secondary {
+  background: var(--accent-secondary);
+  box-shadow: 0 0 5px var(--accent-secondary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
 }

@@ -31,7 +31,7 @@ export default function ScrollProgressBar() {
 
   return (
     <div
-      className="fixed top-0 left-0 h-[4px] bg-green-500 z-50 transition-[width] duration-75 ease-linear shadow-md"
+      className="fixed top-0 left-0 h-[4px] bg-[--accent-primary] z-50 transition-[width] duration-75 ease-linear shadow-[0_0_10px_var(--accent-primary)]"
       style={{ width: `${scrollProgress}%` }}
     ></div>
   );
