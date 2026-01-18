@@ -3,11 +3,12 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CgArrowLongRight } from 'react-icons/cg';
-import { FaRegEye, FaAppStore, FaGooglePlay, FaGlobe, FaGithub, FaArrowRight } from 'react-icons/fa';
+import { FaAppStore, FaGooglePlay, FaGlobe, FaGithub, FaArrowRight } from 'react-icons/fa';
 import { ChevronRight } from 'lucide-react';
 import { IoIosSearch } from 'react-icons/io';
 import GitHubStatsImage from './GitHubStatsImage';
 import OptimizedImage from './OptimizedImage';
+import Image from 'next/image';
 
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
@@ -42,11 +43,11 @@ interface Project {
   };
 }
 
-interface PersonalProject {
-  title: string;
-  details: string;
-  images: string[];
-}
+// interface PersonalProject {
+//   title: string;
+//   details: string;
+//   images: string[];
+// }
 
 const projects: Project[] = [
   {
@@ -312,7 +313,7 @@ export default function Projects() {
                     </p>
 
                     <div className='flex flex-wrap gap-2 mt-auto'>
-                      {p.techStack.slice(0, 3).map((tech, idx) => (
+                      {p.techStack.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
                           className='text-[10px] uppercase tracking-wider font-mono px-2 py-1 text-[--text-secondary] border border-[--border-glass] bg-[--bg-dark]/30'
@@ -381,10 +382,13 @@ export default function Projects() {
               <div className='lg:col-span-2 glass-card p-6 flex flex-col items-center bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 overflow-hidden'>
                 <h3 className='text-[--accent-primary] text-xs font-mono uppercase tracking-[0.2em] mb-6'>Commit Contribution Heatmap</h3>
                 <div className='w-full overflow-x-auto scroller-hide flex justify-center'>
-                  <img
+                  <Image
                     src={`https://ghchart.rshah.org/${theme === 'dark' ? '10b981' : '059669'}/suleman2244`}
                     alt='Sulaman Commit Chart'
                     className='min-w-[700px] h-auto hover:brightness-110 transition-all duration-700'
+                    unoptimized
+                    width={700}
+                    height={150}
                   />
                 </div>
               </div>

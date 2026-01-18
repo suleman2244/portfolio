@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { FaRegEye } from "react-icons/fa";
-import { CgArrowLongRight } from "react-icons/cg";
+// import { CgArrowLongRight } from "react-icons/cg";
+import OptimizedImage from "./OptimizedImage";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -79,7 +79,7 @@ export default function InternshipsAndCertificates() {
                   INT_EXP_{i + 1}
                 </div>
 
-                <img
+                <OptimizedImage
                   src={img.src}
                   alt={`Internship ${i + 1}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
@@ -112,7 +112,7 @@ export default function InternshipsAndCertificates() {
                 <div className="absolute top-2 left-2 z-10 bg-black/60 px-1 py-0.5 text-[8px] font-mono text-[--accent-secondary] border border-[--accent-secondary]/20">
                   CERT_ID_{i + 1}
                 </div>
-                <img
+                <OptimizedImage
                   src={img.src}
                   alt={`Certificate ${i + 1}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
@@ -143,7 +143,7 @@ export default function InternshipsAndCertificates() {
                 <div className="absolute top-2 left-2 z-10 bg-black/60 px-1 py-0.5 text-[8px] font-mono text-purple-400 border border-purple-500/20">
                   LIC_ID_{i + 1}
                 </div>
-                <img
+                <OptimizedImage
                   src={img.src}
                   alt={`License ${i + 1}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"

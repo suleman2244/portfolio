@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
+import OptimizedImage from './OptimizedImage';
 
 interface Testimonial {
     name: string;
@@ -93,7 +94,7 @@ export default function Testimonials() {
                         <div className="border-t border-[--border-glass] pt-6 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-full overflow-hidden border border-[--border-glass] ring-2 ring-[--accent-primary]/20">
-                                    <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+                                    <OptimizedImage src={t.image} alt={t.name} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="text-left">
                                     <h4 className="text-[--text-primary] font-bold text-xs uppercase tracking-wider">{t.name}</h4>

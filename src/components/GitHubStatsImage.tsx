@@ -1,7 +1,6 @@
-'use client';
-
 import React, { useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
+import Image from 'next/image';
 
 interface GitHubImageProps {
     src: string;
@@ -30,11 +29,13 @@ const GitHubStatsImage: React.FC<GitHubImageProps> = ({ src, alt, fallbackTitle 
     }
 
     return (
-        <img
+        <Image
             src={src}
             alt={alt}
             className='w-full max-w-lg object-contain'
-            loading='lazy'
+            unoptimized
+            width={500}
+            height={300}
             onError={() => setHasError(true)}
         />
     );

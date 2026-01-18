@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+// import Image from 'next/image'; // Unused
 import React from 'react';
 import { motion, useScroll, useSpring, useMotionValue, useTransform } from 'framer-motion';
 
@@ -344,7 +344,7 @@ export default function Portfolio() {
               ].map((tool) => (
                 <div key={tool.name} className='flex flex-col items-center group cursor-pointer'>
                   <div className='w-16 h-16 flex items-center justify-center transition-all duration-300 group-hover:scale-110 p-3 rounded-xl bg-[--bg-dark] border border-[--border-glass] group-hover:border-[--accent-primary]'>
-                    <img
+                    <OptimizedImage
                       src={tool.icon}
                       alt={tool.name}
                       className='w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300'

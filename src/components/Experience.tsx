@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, CheckCircle2, Building2 } from 'lucide-react';
+// import { Briefcase, Calendar, CheckCircle2, Building2 } from 'lucide-react'; // Unused
 
 interface ExperienceItem {
     company: string;

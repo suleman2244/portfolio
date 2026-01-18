@@ -1,7 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ui-avatars.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github-readme-stats.vercel.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ghchart.rshah.org',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

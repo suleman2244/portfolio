@@ -42,7 +42,7 @@ export default function ContactForm() {
             } else {
                 throw new Error('Failed to send message');
             }
-        } catch (error) {
+        } catch {
             setStatus({ type: 'error', message: 'Failed to send message. Please try email directly.' });
         }
     };
@@ -124,10 +124,10 @@ export default function ContactForm() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className={`p-4 rounded-xl text-center ${status.type === 'success'
-                            ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-400'
-                            : status.type === 'error'
-                                ? 'bg-red-500/10 border border-red-500/30 text-red-400'
-                                : ''
+                        ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-400'
+                        : status.type === 'error'
+                            ? 'bg-red-500/10 border border-red-500/30 text-red-400'
+                            : ''
                         }`}
                 >
                     {status.message}
