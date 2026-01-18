@@ -191,7 +191,7 @@ export default function Chatbot() {
                                 </button>
                             </div>
                             <p className="text-[10px] text-[--text-secondary] text-center mt-2 flex items-center justify-center gap-1">
-                                <Sparkles size={10} /> Powered by Sulaman's Portfolio AI
+                                <Sparkles size={10} /> Powered by Sulaman&apos;s Portfolio AI
                             </p>
                         </div>
                     </motion.div>

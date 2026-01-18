@@ -140,7 +140,7 @@ export default function Portfolio() {
           >
             <a href='#contact' className='group relative px-6 py-3 rounded-lg bg-[--accent-primary] text-[#020617] font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]'>
               <div className='absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300'></div>
-              <span className='relative flex items-center gap-2'>✉️ Let's Talk</span>
+              <span className='relative flex items-center gap-2'>✉️ Let&apos;s Talk</span>
             </a>
 
             <a
@@ -232,7 +232,7 @@ export default function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                  <span className='text-[--text-primary] font-semibold'>"Hi, I'm Sulaman Khan</span> — a Senior Software Engineer with 6 years of experience building enterprise applications that serve over <span className='text-[--accent-primary] font-bold'>50 million users</span>.
+                  <span className='text-[--text-primary] font-semibold'>&quot;Hi, I&apos;m Sulaman Khan</span> — a Senior Software Engineer with 6 years of experience building enterprise applications that serve over <span className='text-[--accent-primary] font-bold'>50 million users</span>.
                 </motion.p>
 
                 <motion.p
@@ -248,7 +248,7 @@ export default function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.5, duration: 0.5 }}
                 >
-                  I'm currently in <span className='text-[--text-primary] font-semibold'>Germany</span>, ready for my next challenge — whether that's scaling your platform or integrating AI into your products.
+                  I&apos;m currently in <span className='text-[--text-primary] font-semibold'>Germany</span>, ready for my next challenge — whether that&apos;s scaling your platform or integrating AI into your products.
                 </motion.p>
 
                 <motion.p
@@ -257,7 +257,7 @@ export default function Portfolio() {
                   transition={{ delay: 2, duration: 0.5 }}
                   className='text-[--accent-primary] font-bold italic'
                 >
-                  Let's build something great together!"
+                  Let&apos;s build something great together!&quot;
                 </motion.p>
               </div>
 
@@ -449,7 +449,7 @@ export default function Portfolio() {
           <div className='glass-card p-8 md:p-12 border-l-4 border-[--accent-primary]'>
             <h3 className='text-xl font-bold mb-4 text-gradient'>Professional Philosophy</h3>
             <p className='text-[--text-secondary] text-lg leading-relaxed italic'>
-              "I am passionate about building clean, performant, and scalable architectures that bridge the gap between complex technical requirements and intuitive user experiences. My goal is to leverage AI and modern engineering practices to deliver measurable business value and drive digital innovation."
+              &quot;I am passionate about building clean, performant, and scalable architectures that bridge the gap between complex technical requirements and intuitive user experiences. My goal is to leverage AI and modern engineering practices to deliver measurable business value and drive digital innovation.&quot;
             </p>
           </div>
         </section>

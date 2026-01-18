@@ -87,7 +87,7 @@ export default function Testimonials() {
                         </div>
 
                         <p className="text-[--text-secondary] text-sm leading-relaxed mb-8 italic flex-grow">
-                            "{t.text}"
+                            &quot;{t.text}&quot;
                         </p>
 
                         <div className="border-t border-[--border-glass] pt-6 flex items-center justify-between">

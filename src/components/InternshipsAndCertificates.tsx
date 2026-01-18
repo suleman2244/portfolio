@@ -51,7 +51,7 @@ export default function InternshipsAndCertificates() {
           INTERNSHIPS & CERTIFICATIONS
         </h2>
         <p className="mt-4 text-[--text-secondary] text-[15px] leading-relaxed font-mono text-xs max-w-3xl">
-          // ACCESSING_VERIFIED_CREDENTIALS <br />
+          {`// ACCESSING_VERIFIED_CREDENTIALS`}<br />
           Showcasing practical experience and verified achievements.
         </p>
         <br />

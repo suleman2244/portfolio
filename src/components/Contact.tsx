@@ -15,7 +15,7 @@ export default function Contact() {
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[--accent-primary]"></div>
 
           <h2 className="text-3xl font-extrabold mb-6 tracking-tight flex items-center justify-center gap-3">
-            <span className="text-[--accent-primary]">{`//`}</span> LET'S CONNECT
+            <span className="text-[--accent-primary]">{`//`}</span> LET&apos;S CONNECT
           </h2>
 
           <p className="max-w-xl mx-auto text-[--text-secondary] text-lg mb-10 leading-relaxed font-mono text-sm">
